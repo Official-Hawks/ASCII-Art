@@ -1,0 +1,216 @@
+<h1 id="ascii-bot-command-help">ASCII Bot command help</h1>
+<ul>
+<li><a href="#ascii-bot-command-help">ASCII Bot command help</a><ul>
+<li><a href="#command-syntax">Command syntax</a></li>
+<li><a href="#options-syntax">Options syntax</a><ul>
+<li><a href="#option-types">Option types</a><ul>
+<li><a href="#letter">Letter</a></li>
+<li><a href="#word">Word</a></li>
+</ul>
+</li>
+<li><a href="#positioning">Positioning</a></li>
+</ul>
+</li>
+<li><a href="#commands">Commands</a><ul>
+<li><a href="#ping">ping</a></li>
+<li><a href="#info">info</a></li>
+<li><a href="#image">image</a></li>
+<li><a href="#text">text</a></li>
+<li><a href="#fonts">fonts</a></li>
+<li><a href="#help">help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="command-syntax">Command syntax</h2>
+<p>To trigger a command send a message that starts with a mention to the bot or with <code>ASCII</code>, for example:</p>
+<ul>
+<li><code>@ASCII#9369 &lt;command&gt; [options]</code></li>
+<li><code>ASCII &lt;command&gt; [options]</code></li>
+</ul>
+<h2 id="options-syntax">Options syntax</h2>
+<p>The options syntax is similar to the syntax of linux commands.</p>
+<p><strong>NOTE</strong>: every command has a <code>--help</code> option that can be used to get help about that command.</p>
+<h3 id="option-types">Option types</h3>
+<p>If the option is one letter it only needs a <code>-</code> in front of it, if it&#39;s a word in needs <code>--</code>.</p>
+<h4 id="letter">Letter</h4>
+<ul>
+<li><strong>YES</strong>: <code>-f</code></li>
+<li>NO: <code>--f</code></li>
+</ul>
+<h4 id="word">Word</h4>
+<ul>
+<li><strong>YES</strong>: <code>--font</code></li>
+<li>NO: <code>-font</code></li>
+</ul>
+<h3 id="positioning">Positioning</h3>
+<p>Always put the options after the command name.</p>
+<ul>
+<li><strong>YES</strong>: <code>ASCII &lt;command&gt; text and stuff --option value</code></li>
+<li>NO: <code>ASCII --option value &lt;command&gt; text and stuff</code></li>
+</ul>
+<h2 id="commands">Commands</h2>
+<h3 id="ping">ping</h3>
+<p><strong>Description</strong>:
+Responds with <code>PONG!</code> and the bot latency in milliseconds (ms).</p>
+<p><strong>Usage</strong>:
+  <code>ASCII ping</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li>Like any other command you can use the <code>--help</code> flag to get help about this command.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">    <span class="hljs-keyword">user</span> <span class="hljs-title">&gt; ASCII</span> ping
+    ASCII&gt; Pong! Latency is <span class="hljs-number">641ms</span>. API Latency is <span class="hljs-number">127ms</span>
+</code></pre>
+<h3 id="info">info</h3>
+<p><strong>Description</strong>:
+Responds with info about the bot, such as uptime, servers the bot is in and invites.</p>
+<p><strong>Usage</strong>:
+  <code>ASCII info</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li>Like any other command you can use the <code>--help</code> flag to get help about this command.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">    user &gt; ASCII info
+    ASCII&gt; **ASCII info**
+           &gt; <span class="hljs-string">Uptime:</span> <span class="hljs-number">10</span>min
+           &gt; <span class="hljs-string">Servers:</span> <span class="hljs-number">69</span>
+           &gt; Add me to your <span class="hljs-string">server:</span> &lt;<span class="hljs-string">https:</span><span class="hljs-comment">//discordbots.org/bot/326619566719369217&gt;</span>
+           &gt; Support <span class="hljs-string">server:</span> discordapp.com/...
+</code></pre>
+<h3 id="image">image</h3>
+<p><strong>Description</strong>:
+Converts all images attached to the message into ASCII art.</p>
+<p><strong>Usage</strong>:
+  <code>ASCII image [options]</code> (you need to attach images)</p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><p><code>--height</code>, <code>-h</code>:</p>
+<p>Must be a number bigger or equal to 1.
+Specifies the height of the outputted ASCII art.
+If this option is specified the aspect ratio will be ignored.
+Note that the max size of a Discord message id 2000 character, so <code>--height</code> * <code>--width</code> must be lower than 200.
+Default = scale to fit.</p>
+</li>
+<li><p><code>--width</code>, <code>-w</code>:</p>
+<p>Must be a number bigger or equal to 1.
+Specifies the width of the outputted ASCII art.
+If this option is specified the aspect ratio will be ignored.
+Note that the max size of a Discord message id 2000 character, so <code>--height</code> * <code>--width</code> must be lower than 200.
+Default = scale to fit.</p>
+</li>
+<li><p><code>--charset</code>, <code>--chars</code>, <code>-c</code>:</p>
+<p>Must be a string.
+Specifies which character to use, from darkest lo lightest.
+More characters = more brightness levels = better results.
+Default = &quot;%&amp;#MHGw*+-. &quot;</p>
+</li>
+<li><p>Like any other command you can use the <code>--help</code> flag to get help about this command.</p>
+</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">    user &gt; ASCII image [attachment.jpg]
+    ASCII&gt; +--------------------+
+           |<span class="hljs-string">                    </span>|
+           |<span class="hljs-string">    Your beautiful  </span>|
+           |<span class="hljs-string">      ASCII art     </span>|
+           |<span class="hljs-string">                    </span>|
+           +--------------------+
+</code></pre>
+<h3 id="text">text</h3>
+<p><strong>Description</strong>:
+Converts the text to ASCII art using FIGlet.</p>
+<p><strong>Usage</strong>:
+  <code>ASCII text &lt;your message&gt; [options]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><p><code>--font</code>, <code>-f</code></p>
+<p>Must be a font name, you can get a list using the <a href="#fonts">fonts</a> command.
+Specifies in which font to render your text.
+Default = &quot;standard&quot;</p>
+</li>
+<li><p><code>-k</code>, <code>--kerning</code></p>
+<p>Must be one of &quot;default&quot;, &quot;fitted&quot;, &quot;full&quot;.
+Specifies which kerning to use.</p>
+</li>
+<li><p><code>--horizontalLayout</code>, <code>--horizontal</code>, <code>--hLayout</code>, <code>--hl</code>, <code>-h</code></p>
+<p>Must be on of &quot;default&quot;, &quot;full&quot;, &quot;fitted&quot;, &quot;controlled smushing&quot;, &quot;universal smushing&quot;.
+Specifies which horizontal layout to use.
+Default = &quot;default&quot;</p>
+</li>
+<li><p><code>--verticalLayout</code>, <code>--vertical</code>, <code>--vLayout</code>, <code>--vl</code>, <code>-v</code></p>
+<p>Must be on of &quot;default&quot;, &quot;full&quot;, &quot;fitted&quot;, &quot;controlled smushing&quot;, &quot;universal smushing&quot;.
+Specifies which vertical layout to use.
+Default = &quot;default&quot;</p>
+</li>
+<li><p>Like any other command you can use the <code>--help</code> flag to get help about this command.</p>
+</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">    user &gt; ASCII text Hello!
+    ASCII&gt;   _   _      _ _       _
+            |<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> ___</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> ___ </span>|<span class="hljs-string"> </span>|
+            |<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">/ _ \ </span>|<span class="hljs-string"> </span>|<span class="hljs-string">/ _ \</span>|<span class="hljs-string"> </span>|
+            |<span class="hljs-string">  _  </span>|<span class="hljs-string">  __/ </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> (_) </span>|<span class="hljs-string">_</span>|
+            |<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string">\___</span>|<span class="hljs-string">_</span>|<span class="hljs-string">_</span>|<span class="hljs-string">\___/(_)</span>
+</code></pre>
+<pre><code class="lang-txt">    user &gt; ASCII text Boo! -f Ghost
+    ASCII&gt; .-. .-')                            ,---.
+           \  ( OO )                           |<span class="hljs-string">   </span>|
+            ;-----.\  .-'),-----.  .-'),-----. |<span class="hljs-string">   </span>|
+            |<span class="hljs-string"> .-.  </span>|<span class="hljs-string"> ( OO'  .-.  '( OO'  .-.  '</span>|<span class="hljs-string">   </span>|
+            |<span class="hljs-string"> '-' /_)/   </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>|<span class="hljs-string">/   </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>||<span class="hljs-string">   </span>|
+            |<span class="hljs-string"> .-. `. \_) </span>|<span class="hljs-string">  </span>|<span class="hljs-string">\</span>|<span class="hljs-string">  </span>|<span class="hljs-string">\_) </span>|<span class="hljs-string">  </span>|<span class="hljs-string">\</span>|<span class="hljs-string">  </span>||<span class="hljs-string">  .'
+            </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  \  </span>|<span class="hljs-string">  \ </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  \ </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>|<span class="hljs-string">`--'
+            </span>|<span class="hljs-string"> '--'  /   `'  '-'  '   `'  '-'  '.--.
+            `------'      `-----'      `-----' '--'</span>
+</code></pre>
+<h3 id="fonts">fonts</h3>
+<p><strong>Description</strong>:
+Responds with a list of fonts.
+In order to not spam the chat the list will be sent in your DMs.</p>
+<p><strong>Usage</strong>:
+  <code>ASCII fonts [options]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><p><code>--searchString</code>, <code>--stringSearch</code>, <code>--search</code>, <code>--string</code> <code>-s</code>:</p>
+<p>Must be a string.
+The string to search in the font names, case insensitive.</p>
+</li>
+<li><p>Like any other command you can use the <code>--help</code> flag to get help about this command.</p>
+</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">    user &gt; ASCII fonts
+    ASCII&gt; <span class="hljs-number">1</span>Row, <span class="hljs-number">3</span>-D, <span class="hljs-number">3</span>D_Diagonal, <span class="hljs-number">3</span>D-ASCII, <span class="hljs-number">3</span>x5,
+           <span class="hljs-number">4</span>Max, <span class="hljs-number">5</span>_Line Oblique, Acrobatic ...
+</code></pre>
+<pre><code class="lang-txt">    user &gt; ASCII fonts --search <span class="hljs-number">3</span>D
+    ASCII&gt; <span class="hljs-number">3</span>D_Diagonal, <span class="hljs-number">3</span>D-ASCII, Henry_3D,
+           Larry_3D <span class="hljs-number">2</span>, Larry_3D
+</code></pre>
+<h3 id="help">help</h3>
+<p><strong>Description</strong>:
+Sends help for the bot commands (send links to this file).</p>
+<p><strong>Usage</strong>
+  <code>ASCII help [command name]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><p>You can add a command name (as shown in the example) to get the link to the section of the command you specified.</p>
+</li>
+<li><p>Like any other command you can use the <code>--help</code> flag to get help about this command (even though it would be quite useless to use it here).</p>
+</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="lang-txt">  user &gt; ASCII <span class="hljs-keyword">help</span>
+  ASCII&gt; @user#<span class="hljs-number">0000</span>, you can <span class="hljs-keyword">find</span> <span class="hljs-keyword">help</span> about <span class="hljs-keyword">all</span> the commands here:
+         http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/<span class="hljs-number">7</span>ixi0/discord-<span class="hljs-keyword">ascii</span>-bot/blob/master/<span class="hljs-keyword">help</span>.md.
+         You can also <span class="hljs-keyword">try</span> `<span class="hljs-keyword">help</span> <span class="hljs-symbol">&lt;commandName&gt;</span>` <span class="hljs-keyword">to</span> <span class="hljs-built_in">get</span> <span class="hljs-keyword">a</span> link <span class="hljs-keyword">to</span> <span class="hljs-keyword">a</span> specific <span class="hljs-keyword">command</span>.
+</code></pre>
+<pre><code class="lang-txt">  user &gt; ASCII <span class="hljs-keyword">help</span> image
+  ASCII&gt; @user#<span class="hljs-number">0000</span>, you can <span class="hljs-keyword">find</span> <span class="hljs-keyword">help</span> about that <span class="hljs-keyword">command</span> here:
+         http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/<span class="hljs-number">7</span>ixi0/discord-<span class="hljs-keyword">ascii</span>-bot/blob/master/<span class="hljs-keyword">help</span>.md#image
+</code></pre>
